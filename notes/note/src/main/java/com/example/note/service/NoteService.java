@@ -30,7 +30,11 @@ public class NoteService {
 		return noteRepository.findAll(pageable);
 		
 	}
-	
+	public Page<Note> findWithFilters(String title,Pageable pageable) {
+		
+		return noteRepository.findWithFilters(title,pageable);
+		
+	}
 	public List<NoteDto> getAllNotes(){
 		
 		return noteMapper.toDtoList(noteRepository.findAll());
