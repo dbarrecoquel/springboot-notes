@@ -45,7 +45,7 @@ public class NoteController {
 	        @RequestParam(defaultValue = "10") int size,
 	        @RequestParam(defaultValue = "id") String sortBy,
 	        @RequestParam(defaultValue = "asc") String direction,
-	        @RequestParam(required = false) String title) {
+	        @RequestParam(required = false) String search) {
 
 	    Sort sort = direction.equalsIgnoreCase("desc")
 	            ? Sort.by(sortBy).descending()
@@ -53,7 +53,7 @@ public class NoteController {
 
 	    Pageable pageable = PageRequest.of(page, size, sort);
 
-	    Page<Note> pageResult = noteService.findWithFilters(title, pageable);
+	    Page<Note> pageResult = noteService.findWithFilters(search, pageable);
 
 	    List<NoteDto> content = noteMapper.toDtoList(pageResult.getContent());
 	            
