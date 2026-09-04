@@ -69,7 +69,7 @@ public class NoteController {
 	    return ResponseEntity.ok(response);
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<NoteDto> getAdsById(@PathVariable Long id) {
+	public ResponseEntity<NoteDto> getNoteById(@PathVariable Long id) {
 		
 		return ResponseEntity.ok(noteService.getNoteById(id));
 		
